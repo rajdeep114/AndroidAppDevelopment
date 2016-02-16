@@ -322,6 +322,141 @@ public class MainActivity extends AppCompatActivity {
 ****************************************************************************************************************************************
 ****************************************************************************************************************************************
 
+********************************************************* RADIOBUTTON ******************************************************************
+****************************************************************************************************************************************
 
 
+public class MainActivity extends AppCompatActivity {
+    TextView finalResult;
+    String itemSelected;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        finalResult = (TextView) findViewById(R.id.result);
 
+    }
+
+    public void selectFruit(View view) {
+        boolean selected = ((RadioButton) view).isChecked();
+
+           switch(view.getId()) {
+               case R.id.apple:
+                    if(selected)
+                        finalResult.setText("Apple");
+                    else
+                        finalResult.setText("");
+                break;
+
+               case R.id.orange:
+                    if(selected)
+                        finalResult.setText("Orange");
+                    else
+                        finalResult.setText("");
+               break;
+
+               case R.id.banana:
+                    if(selected)
+                        finalResult.setText("Banana");
+                    else
+                        finalResult.setText("");
+               break;
+        }
+    }
+}
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+********************************************************** CHECKBOXES ******************************************************************
+****************************************************************************************************************************************
+
+public class MainActivity extends AppCompatActivity {
+
+    TextView result;
+    ArrayList<String> list = new ArrayList<String>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        result = (TextView) findViewById(R.id.finalResult);
+        result.setEnabled(false);
+    }
+
+    // Click event -- When done button is clicked, the finalized list is displayed.
+    public void finalSelection(View view) {
+
+        // Initialize an empty list, if nothing is selected.
+        String final_fruit_selection = "";
+
+//        for(String s: list)
+//            final_fruit_selection += s + "\n";
+
+        // Traverse through the list to display all selected items
+        for(int i = 0; i < list.size() - 1; i++)
+            final_fruit_selection  += list.get(i) + ", ";
+
+        final_fruit_selection += list.get(list.size() - 1);
+
+        result.setText(final_fruit_selection);
+        result.setEnabled(true);
+    }
+
+    /* This method is used to see which items are selected and then update the ArrayList accordingly.
+       In the first part, there is a boolean introduced to find out if the box is checked or not. This
+       is done by referring to the view object passed to the method as parameter.
+
+       Later, we use view.getId() method to see which check box is checked. We use this to make a switch/case statement
+
+       switch/case -- it solves the purpose of nested case statements.
+
+       If the box is checked -- add the fruit to the ArrayList, else remove it
+   */
+
+    public void selectItem(View view) {
+        boolean checked;
+        checked = ((CheckBox) view).isChecked();
+        int id = view.getId();
+        switch(id) {
+            case R.id.apples:
+                if (checked)
+                    list.add("Apples");
+                else
+                    list.remove("Apples");
+                break;
+
+            case R.id.oranges:
+                if (checked)
+                    list.add("Oranges");
+                else
+                    list.remove("Oranges");
+                break;
+
+            case R.id.pineapples:
+                if (checked)
+                    list.add("Pineapples");
+                else
+                    list.remove("Pineapples");
+                break;
+            case R.id.grapes:
+                if (checked)
+                    list.add("Grapes");
+                else
+                    list.remove("Grapes");
+                break;
+
+            case R.id.bananas:
+                if (checked)
+                    list.add("Bananas");
+                else
+                    list.remove("Bananas");
+                break;
+        }
+    }
+}
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************

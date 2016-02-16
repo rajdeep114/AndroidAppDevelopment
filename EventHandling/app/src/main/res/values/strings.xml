@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Event Handling</string>
+    <string name="textLabel">Hello World</string>
+    <string name="clickButton">Change Text!</string>
+</resources>

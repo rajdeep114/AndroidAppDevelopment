@@ -1,0 +1,427 @@
+Working with XML file to design layout 
+
+************************************************* WORKING WITH BUTTON AND TEXT VIEW *****************************************************
+*****************************************************************************************************************************************
+
+***Creating a TextView**** 
+
+	<TextView
+	    android:layout_width="wrap_content"			// wrap_content mean that width of the layout should be equal to the width of text
+	    android:layout_height="wrap_content"		// wrap_content mean that height of the layout should be equal to the height of text
+	    android:text="Greeting Appears here"		// Use text keyword to display text
+	    android:id="@+id/greeting_text_view"		// To set up a unique ID. Use @+id/...
+	/>
+
+***Creating a Button**** 
+   <Button
+        android:layout_width="match_parent"				// match_parent: width = width of the parent layout(eg. Relative layout)
+        android:layout_height="wrap_content"			
+        android:text="show greetings"
+        android:layout_below="@id/greeting_text_view"	// layout_below: button is below is specific label defined by their id
+        												// In this case button is below a label defined by id: @id/greeting_text_view
+
+        *** Creates a listner that waits for user input *****
+        android:onClick="bottonClicked"					// This code creates a listner method(onClick) called bottonClicked
+        												// This is a defination of the listener method, however, its implementation 
+        													is in java file.
+   />
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+********************************************************* MULTIPLE ACTIVITY ************************************************************
+****************************************************************************************************************************************
+In order to make multiply activities, we need to create corresponding java and xml file. For java file, in an already existing project, go to app > java > project name(user defined) > right click and create a New java class. For xml file, go to app > res > layout > right click on layout and choose layout resource file.
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Greeting Appears here"
+        android:id="@+id/greeting_text_view"
+        />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Second Activity"
+        android:layout_below="@id/greeting_text_view"
+        android:onClick="buttonClicked"
+        android:id="@+id/button" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open Third Activity"
+        android:id="@+id/button2"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:onClick="buttonClicked"
+        />
+</RelativeLayout> 
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+********************************************************* USER INTERFACE ***************************************************************
+****************************************************************************************************************************************
+We can align the component horizontal or vertically using the linear layout. 
+First we changed relative layout to linear and then added EditText and Button.
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+    <EditText
+        android:layout_width="0dp"				// define width using layout weight
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_text"		// Text that is displayed in the input text column before user inputs data
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/button_text"  />  // Text that is displayed in the input text column before user inputs data
+        										// use "@string/name of the string(identifier used in string.xml)"
+        										// Define string in resource > values > string.xml
+</LinearLayout>
+-----------------------------------------------------------------------------------------------------------------------------------------
+STRING.XML FILE 
+
+    <string name="hint_text">Enter a message</string>
+    <string name="button_text">SEND</string>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************* SEND MESSAGE BETWEEN ACTIVITIES **********************************************
+****************************************************************************************************************************************
+----- ANDROID MANIFEST FILE -----
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.getapp.userinterface">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="SecondActivity"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.getapp.userinterface.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+---- MAIN ACTIVITY --- This file uses a linear layout with a vertical orientation
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageText"
+        android:hint="@string/hint_text"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/button_text"
+        android:onClick="messageSend"/>
+
+</LinearLayout>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************* LINEAR LAYOUT  ***************************************************************
+****************************************************************************************************************************************
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/toText"
+        />
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/subjectText"/>
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"			// Allocate rest of the screen/space to the component. Component in this case is a edit text
+        android:gravity="top"				// gravity attribute moves the text inside the component.
+        									// alignment of the string inside the component
+        android:hint="@string/messageText"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"		// layout_gravity moves the entire component on the screen. 
+        									// It is like the alignment of the component relative to thescreen.
+        android:hint="@string/sendButton"
+      />
+
+</LinearLayout>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+String.xml file
+    <string name="toText">To</string>
+    <string name="subjectText">Subject</string>
+    <string name="messageText">Message</string>
+    <string name="sendButton">SEND</string>
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************* RELATIVE LAYOUT  *************************************************************
+****************************************************************************************************************************************
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    >
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/firstName"
+        android:layout_toLeftOf="@id/lastName"
+        />
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="100dp "
+        android:layout_height="wrap_content"
+        android:hint="@string/last_name"
+        android:layout_alignParentRight="true"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/lastName"/>
+
+</RelativeLayout>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+********************************************************* BUTTONS **********************************************************************
+****************************************************************************************************************************************
+In order to add images/file to drawable folder, copy the image and right click on the drawable folder in the resources section and paste
+it in this folder.
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.getapp.buttons.MainActivity">
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alarm"/>
+
+    <ImageButton
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/alarm_clock"				
+        android:layout_below="@id/b1"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/b2"
+        android:drawableLeft="@drawable/alarm_clock"			// Add drawable to the component- left, right etc.
+        android:text="@string/alarm"/>
+
+
+</RelativeLayout>
+
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+**************************************************** BUTTON CLICK EVENTS ***************************************************************
+****************************************************************************************************************************************
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clickMe"
+        android:onClick="buttonClicked"
+        />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clickMeToo"
+
+        />
+
+</LinearLayout>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************* KEYBOARD TYPES ***************************************************************
+****************************************************************************************************************************************
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.getapp.keyboardlayout.MainActivity">
+
+    <EditText
+        android:id="@+id/key1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"/>     // set keyboard type
+
+    <EditText
+        android:layout_below="@id/key1"
+        android:id="@+id/key2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number"				
+        android:inputType="number"/>            // set keyboard type
+
+    <EditText
+        android:layout_below="@id/key2"
+        android:id="@+id/key3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DOB"				
+        android:inputType="date"/>           // set keyboard type
+
+    <EditText
+        android:layout_below="@id/key3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password "
+        android:inputType="numberPassword"/>           // set keyboard type
+
+
+</RelativeLayout>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+************************************************* AUTO COMPLETE TEXTVIEW ***************************************************************
+****************************************************************************************************************************************
+-------- Activity.xml ---------
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.getapp.autocompletetextview.MainActivity">
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/country"
+        android:hint="Select Country"/>
+
+</RelativeLayout>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+String.xml = We create an array of names of different countries, which is later used in the java file to create an ArrayAdapter. 
+ArrayAdapter is used in the AutoCompleteTextView.setAdapater(...) as a parameter.
+
+<resources>
+    <string name="app_name">AutoComplete TextView</string>
+    <string-array name="country_names">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Antigua and Barbuda</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Australia</item>
+        <item>India</item>
+    </string-array>
+</resources>
+****************************************************************************************************************************************
+****************************************************************************************************************************************

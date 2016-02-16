@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         String message = "Hey, you just clicked the button";
 
         // set text to message string whenever the button is clicked. onClick listner method calls this
-        // method when button is clicked. This is defined in the xml file.
+        // method when button is clicked. This is defined in the xml file.v
         textView.setText(message);
     }
 }

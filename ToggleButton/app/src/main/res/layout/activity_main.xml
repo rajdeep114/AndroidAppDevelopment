@@ -18,13 +18,18 @@
        android:textOff="Vibrate Off"
        android:layout_gravity="center_horizontal"
        android:onClick="changeVibrateState"
-       android:layout_marginBottom="50dp"/>
+       android:layout_marginBottom="25dp"/>
+
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-
+        android:layout_gravity="center_horizontal"
+        android:textOff="Wifi Off"
+        android:textOn="Wifi On"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/toggle_button_2"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

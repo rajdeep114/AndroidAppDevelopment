@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
     public void changeVibrateState(View view) {
         boolean checked = ((ToggleButton) view).isChecked();
         if(checked) {
-            text.setText("VibrateOn");
+            text.setText("Vibrate On");
             text.setVisibility(View.VISIBLE);
         } else {
-            text.setText("VibrateOff");
-            text.setVisibility(View.INVISIBLE);
+            text.setText("Vibrate Off");
+            text.setVisibility(View.VISIBLE);
         }
     }
 }

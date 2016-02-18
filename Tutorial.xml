@@ -12,7 +12,7 @@ Working with XML file to design layout
 	    android:id="@+id/greeting_text_view"		// To set up a unique ID. Use @+id/...
 	/>
 
-***Creating a Button**** 
+*** Creating a Button**** 
    <Button
         android:layout_width="match_parent"				// match_parent: width = width of the parent layout(eg. Relative layout)
         android:layout_height="wrap_content"			

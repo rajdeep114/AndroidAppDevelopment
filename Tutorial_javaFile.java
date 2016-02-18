@@ -509,6 +509,7 @@ public class MainActivity extends AppCompatActivity {
 ********************************************************** SPINNER *********************************************************************
 ****************************************************************************************************************************************
 ------ NEED TO REVIEW THIS VIDEO ---------
+
 public class MainActivity extends AppCompatActivity {
     Spinner spin;
     ArrayAdapter<CharSequence> adapter;

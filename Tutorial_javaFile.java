@@ -514,7 +514,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner spin;
     ArrayAdapter<CharSequence> adapter;
 
-    @Override
+   
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -531,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Method that handles events
         // *************** Need to review this code *********************
-        
+
       spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
           @Override
           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

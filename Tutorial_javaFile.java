@@ -531,6 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Method that handles events
         // *************** Need to review this code *********************
+        
       spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
           @Override
           public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

@@ -475,7 +475,8 @@ public class MainActivity extends AppCompatActivity {
         text.setVisibility(View.INVISIBLE);         // Hides the textview
         sw = (Switch)findViewById(R.id.toggle_button_2);
         sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
+            
+            
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
                     text.setText("Wifi On");

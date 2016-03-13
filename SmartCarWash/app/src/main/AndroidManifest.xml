@@ -30,7 +30,12 @@
                 android:value="com.getapp.smartcarwash.MainActivity" />
         </activity>
         <activity android:name=".About" />
-        <activity android:name=".Deals"></activity>
+        <activity android:name=".Deals" />
+        <activity android:name=".Third_Activity" />
+        <activity android:name=".FourthActivity" />
+        <activity android:name=".FifthActivity" />
+        <activity android:name=".SixthActivity" />
+        <activity android:name=".SeventhActivity"></activity>
     </application>
 
 </manifest>

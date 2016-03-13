@@ -7,13 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    tools:context="com.getapp.smartcarwash.SecondActivity">
+    tools:context="com.getapp.smartcarwash.FifthActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title"
+        android:text="PAYMENT METHOD"
         android:textAppearance="?android:textAppearanceLarge"
         android:layout_gravity="center_horizontal"
         android:id="@+id/textView4" />
@@ -26,17 +25,26 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/smart"
-            android:text="@string/smart_car_wash"
-            android:onClick="selectCarWash"
+            android:id="@+id/credit"
+            android:text="Credit Card"
+            android:onClick="selectCredit"
             android:textAppearance="?android:textAppearanceMedium"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/regular"
-            android:text="@string/regular_car_wash"
-            android:onClick="selectCarWash"
+            android:id="@+id/PayPal"
+            android:text="PayPal"
+            android:onClick="selectCredit"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_marginTop="15dp"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/GiftCard"
+            android:text="Gift Card"
+            android:onClick="selectCredit"
             android:textAppearance="?android:textAppearanceMedium"
             android:layout_marginTop="15dp"/>
 
@@ -73,7 +81,7 @@
         android:id="@+id/nextButton"
         android:layout_gravity=""
         android:onClick="next_Button"
-        android:layout_marginBottom="151dp"
+        android:layout_marginBottom="110dp"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4"

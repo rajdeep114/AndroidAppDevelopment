@@ -8,25 +8,25 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.getapp.smartcarwash.MainActivity"
-    android:background="#a2dfef">
-
+    android:background="#fdfdfd">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/car_wash_22263405"
+        android:src="@drawable/car"
         android:layout_marginBottom="150dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:cropToPadding="false"
-        android:onClick="quickCarWash_button"/>/>
+        android:onClick="quickCarWash_button"
+        android:background="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Sign In"
         android:id="@+id/textView"
         android:layout_alignParentBottom="true"
@@ -37,7 +37,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Deals"
         android:id="@+id/textView2"
         android:layout_alignParentBottom="true"
@@ -47,14 +47,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="About"
         android:id="@+id/textView3"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="aboutLabel"
-        />
+        android:onClick="aboutLabel" />
 
 
     <Button
@@ -65,8 +64,9 @@
         android:layout_marginBottom="54dp"
         android:layout_above="@+id/textView2"
         android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:onClick="quickCarWash_button"/>
 
-        />
+
 
 </RelativeLayout>

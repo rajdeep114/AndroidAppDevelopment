@@ -7,39 +7,45 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class SecondActivity extends AppCompatActivity {
+public class FifthActivity extends AppCompatActivity {
     TextView finalResult;
-    String itemSelected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_activity);
-       finalResult = (TextView) findViewById(R.id.result);
+        setContentView(R.layout.activity_fifth);
+        finalResult = (TextView) findViewById(R.id.result);
     }
 
     public void next_Button(View view) {
-        Intent intent = new Intent(this, Third_Activity.class);
+        Intent intent = new Intent(this, SixthActivity.class);
         startActivity(intent);
     }
 
     public void back_Button(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, FourthActivity.class);
         startActivity(intent);
     }
-    public void selectCarWash(View view) {
+    public void selectCredit(View view) {
         boolean selected = ((RadioButton) view).isChecked();
 
         switch(view.getId()) {
-            case R.id.smart:
+            case R.id.credit:
                 if(selected)
-                    finalResult.setText("Smart Car Wash it is!");
+                    finalResult.setText("Please have credit card handy");
                 else
                     finalResult.setText("");
                 break;
 
-            case R.id.regular:
+            case R.id.PayPal:
                 if(selected)
-                    finalResult.setText("You have selected regular car wash");
+                    finalResult.setText("Please have your paypal account info ready!");
+                else
+                    finalResult.setText("");
+                break;
+
+            case R.id.GiftCard:
+                if(selected)
+                    finalResult.setText("Please have your gift card account number ready!");
                 else
                     finalResult.setText("");
                 break;

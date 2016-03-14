@@ -20,8 +20,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         text = (TextView)findViewById(R.id.text);
         list = (ListView)findViewById(R.id.list);
+
+        //* This is when we are using the default listview layout from android library
                                                 // Default layout available in adroid
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+        //adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names);
+
+        //* This is when we are using a custom listview layout
+                                                // Custom Layout                  TextView of each listItem, data
+        adapter = new ArrayAdapter<String>(this, R.layout.listview_custom_layout, R.id.list_Item           , names);
 
         list.setAdapter(adapter);
 
@@ -32,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // setSelected is not working
+                view.setSelected(true);
                 text.setText("" + parent.getItemAtPosition(position));
+
             }
         });
 

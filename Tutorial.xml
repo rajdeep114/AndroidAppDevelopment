@@ -715,3 +715,87 @@ ArrayAdapter is used in the AutoCompleteTextView.setAdapater(...) as a parameter
 
 ****************************************************************************************************************************************
 ****************************************************************************************************************************************
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************** CUSTOM LISTVIEW *************************************************************
+****************************************************************************************************************************************
+-- THIS IS CUSTOM LAYOUT CREATED TO DISPLAY A CUSTOM LISTVIEW. EACH ITEM ON THE LISTVIEW WILL LOOK LIKE THE TEXTVIEW DESCRIBED IN THIS
+CUSTOM LAYOUT FILE -- FILE NAME IS listview_custom_layout.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/list_Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#0818F8"
+        android:text="Hello World"
+        android:textAppearance="?android:textAppearanceLarge"/>
+
+</LinearLayout>
+
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
+
+
+
+********************************************************** HIGHLIGHT LISTVIEW **********************************************************
+****************************************************************************************************************************************
+
+---------------custom layout file--------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/list_Item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Hello World"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:background="@drawable/my_selector"/>
+
+</LinearLayout>
+
+
+---------------selector file--------------------
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/red_color">
+    </item>
+
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/blue_color">
+
+    </item>
+</selector>
+
+------------- color file ----------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="red_color">#F40303</drawable>
+    <drawable name="blue_color">#1703F4</drawable>
+</resources>
+
+****************************************************************************************************************************************
+****************************************************************************************************************************************
